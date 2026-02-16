@@ -1,0 +1,4 @@
+CREATE USER 'admin'@'localhost' IDENTIFIED BY '12345';
+GRANT ALL PRIVILEGES ON uc11.* TO 'admin'@'localhost';
+FLUSH PRIVILEGES;
+
