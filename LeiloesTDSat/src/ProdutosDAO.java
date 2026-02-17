@@ -42,6 +42,21 @@ public class ProdutosDAO {
         }
     }
     
+    public boolean venderProduto(Integer id) {
+        conn = new conectaDAO().connectDB();
+        String sql = "UPDATE produtos SET status = ? WHERE id = ?";
+        
+        try {
+            prep = conn.prepareStatement(sql);
+            prep.setString(1, "Vendido");
+            prep.setInt(2, id);
+            prep.executeUpdate();
+            return true;
+        } catch (SQLException erro) {
+            return false;
+        }
+    }
+
     public ArrayList<ProdutosDTO> listarProdutos(){
         conn = new conectaDAO().connectDB();
         String sql = "SELECT * FROM produtos";
